@@ -1,0 +1,265 @@
+/*
+Ben Strong
+Take home midterm Povray part A
+CSC413 
+*/ 
+
+#include "colors.inc"      
+#include "shapes.inc" 
+#include "textures.inc"
+
+
+camera {                                          //Camera direct front
+ location <0,8,-15>
+ look_at <0,5,0>
+}            
+
+
+/*
+camera {                                          //Camera front up
+ location <0,18,-15>
+ look_at <0,5,0>
+}   
+*/
+
+/*
+camera {                                          //Camera direct left
+ location <15,8,0>
+ look_at <0,5,0>
+}            
+*/   
+
+/*
+camera {                                          //Camera left up
+ location <15,18,0>
+ look_at <0,5,0>
+}   
+*/
+
+/*
+camera {                                          //Camera direct right
+ location <-15,3,2>
+ look_at <-6,3,2>
+}            
+*/   
+
+/*
+camera {                                          //Camera right up
+ location <-15,18,0>
+ look_at <0,5,0>
+}   
+*/
+ 
+/*
+camera {                                          //Camera direct back
+ location <0,8,15>
+ look_at <0,5,0>
+}            
+*/   
+
+/*
+camera {                                          //Camera down
+ location <0,10,0>
+ look_at <0,5,0>
+}   
+*/
+
+   
+light_source {                                    //Light
+ <0,10,0>
+ White
+}                
+
+
+
+
+
+                                #declare chair = merge{
+
+//Legs
+cylinder {       
+ <1,-1,1.5>, <1,3,1.5>, .25                    //Front Left+right
+    pigment {color Sienna}  
+    finish{ diffuse .3}
+} 
+
+cylinder {       
+ <-1.5,-1,1.5>, <-1.5,3,1.5>, .25    
+    pigment {color VeryDarkBrown}  
+    finish{ diffuse .3}
+}  
+
+cylinder {       
+ <1.5,-1,-1.5>, <1.5,3,-1.5>, .25          //Back Left+right
+    pigment {color SemiSweetChoc}  
+    finish{ diffuse .3}
+} 
+
+cylinder {       
+ <-1.5,-1,-1.5>, <-1.5,3,-1.5>, .25    
+    pigment {color Bronze2}  
+    finish{ diffuse .3}
+}        
+
+//Seat 
+box{                                             
+ <2,3,-2>,<-2,3.25,2>                                                                                 
+    pigment{
+    gradient y
+    color_map {                                     
+     [.25 rgb <.65,.45,.3>]
+     [.5 rgb <.65,.65,.3>] 
+     [.75 rgb <.65,.65,1>] 
+     } turbulence 10}                                     
+    finish{ ambient .75}                        
+}
+
+//Cushion
+sphere {                                //Cushion fluff 1a          
+ <1,3.5,-1> , 1
+    scale <1,.4,1>
+    translate y*2.2                                      
+    pigment{
+    color White
+    turbulence 10}                                     
+    finish{ ambient .75}                        
+}
+sphere {                               //Cushion fluff 2a           
+ <0,3.5,-1> , 1
+    scale <1,.4,1>
+    translate y*2.2                                      
+    pigment{
+    color Black
+    turbulence 10}                                     
+    finish{ ambient .75}                        
+}
+sphere {                               //Cushion fluff 3a           
+ <-1,3.5,-1> , 1
+    scale <1,.4,1>
+    translate y*2.2                                      
+    pigment{
+    color White
+    turbulence 10}                                  
+    finish{ ambient .75}                        
+}                                      //Cushion fluff 1b
+sphere {                                          
+ <1,3.5,0> , 1
+    scale <1,.4,1>
+    translate y*2.2                                      
+    pigment{
+    color Black
+    turbulence 10}
+    finish{ ambient .75}                        
+}
+sphere {                                 //Cushion fluff 2b          
+ <0,3.5,0> , 1
+    scale <1,.4,1>
+    translate y*2.2                                      
+    pigment{
+    color White
+    turbulence 10}                                  
+    finish{ ambient .75}                        
+}                                       //Cushion fluff 3b
+sphere {                                          
+ <-1,3.5,0> , 1
+    scale <1,.4,1>
+    translate y*2.2                                      
+    pigment{
+    color Black
+    turbulence 10}                                     
+    finish{ ambient .75}                        
+}
+sphere {                                 //Cushion fluff 1c         
+ <1,3.5,1> , 1
+    scale <1,.4,1>
+    translate y*2.2                                      
+    pigment{
+    color White
+    turbulence 10}                                     
+    finish{ ambient .75}                        
+}                                        //Cushion fluff 2c
+sphere {                                          
+ <0,3.5,1> , 1
+    scale <1,.4,1>
+    translate y*2.2                                      
+    pigment{
+    color Black
+    turbulence 10}                                    
+    finish{ ambient .75}                        
+}                                         //Cushion fluff 3c
+sphere {                                          
+ <-1,3.5,1> , 1
+    scale <1,.4,1>
+    translate y*2.2                                      
+    pigment{
+    color Gray
+    turbulence 10}                                   
+    finish{ ambient .75}                        
+}
+sphere {                                          
+ <-1,3.5,1> , .1
+    translate y*.4
+    translate x*1.5
+    translate z*-1.5                                          
+    pigment{color Gray
+    turbulence 10}                                     
+    finish{ ambient .75}}
+sphere {                                          
+ <-1,3.5,1> , .1
+    translate y*.4
+    translate x*1.5
+    translate z*-.5                                                                           
+    pigment{color Gray
+    turbulence 10}                                     
+    finish{ ambient .75}}
+sphere {                                          
+ <-1,3.5,1> , .1
+    translate y*.4
+    translate x*.5
+    translate z*-.5                                         
+    pigment{color Gray
+    turbulence 10}                                     
+    finish{ ambient .75}}    
+sphere {                                          
+ <-1,3.5,1> , .1
+    translate y*.4
+    translate x*.5
+    translate z*-1.5                                        
+    pigment{color Gray
+    turbulence 10}                                     
+    finish{ ambient .75}}
+
+
+
+//Back
+box{                                             
+ <2,3,2>,<-2,7,2.25>                                                                                 
+    pigment{
+    gradient z
+    color_map {                                     
+     [.25 rgb <.1,.1,.2>]
+     [.5 rgb <.2,.3,.4>] 
+     [.75 rgb <.4,.5,.5>] 
+     [1 rgb <.6,.8,.7>]
+     } turbulence 10}                                     
+    finish{ ambient .75}                        
+}  
+
+
+//Arms
+
+cylinder {       
+ <1.8,5,2>, <1.8,5,-1>, .2    
+    pigment {color Bronze}  
+    finish{ diffuse .3}
+}         
+cylinder {       
+ <-1.8,5,2>, <-1.8,5,-1>, .2    
+    pigment {color Bronze2}  
+    finish{ diffuse .3}
+}
+                            
+                            }
+
+
+ 
