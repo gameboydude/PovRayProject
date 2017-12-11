@@ -1,0 +1,104 @@
+#include "colors.inc"      
+#include "shapes.inc"
+
+
+
+camera {
+ location <0,5,15>
+ look_at <0,0,0>
+}            
+
+light_source {
+ <4,6,-10>
+ White
+}                
+     
+plane{
+    <0,4,0>, 6
+    pigment{
+     brick
+     color White
+     color rgb<0.8,0.25,0.1>
+     brick_size <1, 4, 8 >
+     mortar .25 // size of the mortar
+     scale<10,10,10>
+    }                                 
+     
+
+}    
+     
+     
+
+
+      
+sky_sphere { 
+ pigment {
+   gradient y
+   color_map {
+   [0 color White]
+   [1 color Blue]}
+   }
+ pigment {
+   color_map {
+   [0 rgbt <0,.5,.6,1>]
+   [.5 rgbt <1,.8,.9,1>]
+   [1 rgbt <1,.8,.9,1>]}   
+   }     
+   
+   }
+         
+      
+cylinder{  <0,1,-9>, <0,1,0>, .5    
+   pigment{ brick
+              color White
+              color rgb<0.8,0.25,0.1>
+              brick_size <0.25, 0.0525, 0.125 >
+              mortar 0.01 // size of the mortar
+            }
+     normal { wrinkles 0.75 scale 0.01}
+     finish { diffuse 1 phong 1.5}
+     } 
+    
+
+cylinder {       
+ <4,4,-2>, <4,3,-2>, 1    
+    pigment {Red}  
+    finish{ ambient .3}
+    #declare outlinecolor = Blue;
+}
+
+
+cone{            
+ <6,0,0>, 1
+ <10,1,0>, .01
+    pigment { Red }
+
+}
+
+cone{
+ <-2,-6,0>, 2
+ <-10,-6,0>, .01
+    pigment { Red }
+
+}
+
+  
+torus{ 
+ 9,.1       
+ pigment{Orange}
+ rotate 10
+ translate x*2
+}
+  
+  
+sphere {       
+ <4,0,0> , 1    
+    pigment {Blue}  
+    finish{ ambient .1}
+}     
+
+sphere {       
+ <4,2,0> , 1    
+    pigment {Yellow}  
+    finish{ ambient .1}
+}

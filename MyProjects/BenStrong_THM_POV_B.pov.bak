@@ -1,0 +1,46 @@
+/*
+Ben Strong
+Take home midterm Povray part B
+CSC413 
+*/ 
+       
+       
+#include "colors.inc"      
+#include "shapes.inc" 
+#include "textures.inc"
+#include "chair.inc"
+
+camera {                                          //Camera direct front
+ location <-20,7,0>
+ look_at <0,5,0>
+} 
+
+light_source {                                    //Light
+ <0,10,0>
+ White
+}
+                                                  
+   
+plane{                                            //plane
+ y,0   
+    pigment{ color White} finish{reflection {1}}}
+
+plane{                                            //plane    
+ x, 20
+    pigment{ color White} finish{reflection {1}}}
+
+plane{                                            //plane    
+ z, 20
+    pigment{ color White} finish{reflection {1}}}        
+    
+    
+object{chair translate y*1  rotate<0,90,0> }                //Chair1
+object{chair translate y*8 translate z*-4 rotate<48,98,17> }//Chair2
+object{chair translate y*1 translate x*5 rotate<0,270,0> }  //Chair3
+
+sphere {                                          
+ <3,5.5,0> , 1.5                                      //G2
+    texture{Glass}
+    finish{ reflection 1}
+    interior { ior  2.4}                           
+}
